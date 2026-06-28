@@ -531,6 +531,63 @@ body {
     font-style: normal;
 }
 
+/* ===== Contact Section ===== */
+.contact-section {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.contact-card p,
+.contact-card a {
+    color: var(--text-dark);
+    font-size: 1rem;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    color: var(--primary-color);
+}
+
+.contact-card-highlight {
+    border-top: 4px solid var(--primary-color);
+}
+
 /* ===== Instagram Section ===== */
 .instagram-section {
     padding: 80px 20px;
@@ -697,6 +754,13 @@ body {
         transform: translateY(-10px);
     }
 
+    .contact-grid,
+    .services-grid,
+    .testimonials-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
     .stat {
         padding: 20px 15px;
     }
@@ -717,199 +781,4 @@ body {
     color: white;
 }
 
-/* ===== Gallery + Contact Section ===== */
-.gallery-contact {
-    padding: 80px 20px;
-    background: var(--light-bg);
-}
-
-.gallery-contact .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.split-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
-    gap: 40px;
-    align-items: start;
-    margin-top: 30px;
-}
-
-.gallery-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.gallery-panel .section-subtitle,
-.contact-panel .section-subtitle {
-    max-width: 650px;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.contact-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-card {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    background: white;
-    padding: 22px;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-}
-
-.contact-card i {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-top: 4px;
-    min-width: 34px;
-}
-
-.contact-card h4 {
-    color: var(--secondary-color);
-    margin-bottom: 8px;
-}
-
-.contact-card p,
-.contact-card a {
-    color: #666;
-    line-height: 1.6;
-}
-
-.contact-card a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.contact-card a:hover {
-    text-decoration: underline;
-}
-
-.carousel {
-    position: relative;
-    width: 100%;
-}
-
-.carousel-container {
-    position: relative;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    aspect-ratio: 16/9;
-    min-height: 320px;
-}
-
-.carousel-slide {
-    display: none;
-    width: 100%;
-    animation: fadeIn 0.5s ease;
-}
-
-.carousel-slide.fade {
-    display: block;
-}
-
-.carousel-slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    object-position: center center;
-    transform: translateY(-10%);
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.55);
-    color: white;
-    border: none;
-    font-size: 1rem;
-    padding: 10px 12px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: var(--transition);
-    z-index: 10;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
-}
-
-.carousel-dots {
-    text-align: center;
-    padding: 20px 0 0;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 8px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dot.active,
-.dot:hover {
-    background-color: var(--primary-color);
-}
-
-@media (max-width: 900px) {
-    .gallery-contact {
-        padding: 60px 15px;
-    }
-
-    .gallery-contact .container {
-        padding: 0 15px;
-    }
-
-    .split-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .carousel-container {
-        min-height: 260px;
-        width: 100%;
-    }
-
-    .contact-card {
-        padding: 18px;
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery-contact {
-        padding: 50px 12px;
-    }
-
-    .contact-card {
-        flex-direction: column;
-    }
-
-    .carousel-btn {
-        padding: 10px 12px;
-    }
-}
 
