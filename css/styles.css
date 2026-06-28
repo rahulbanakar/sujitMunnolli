@@ -539,20 +539,23 @@ body {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
     gap: 30px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .contact-card {
     background: var(--light-bg);
-    padding: 30px;
+    padding: 24px;
     border-radius: 20px;
     box-shadow: var(--shadow);
     text-align: center;
     transition: var(--transition);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    max-width: 260px;
+    width: 100%;
 }
 
 .contact-card:hover {
