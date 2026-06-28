@@ -860,10 +860,10 @@ body {
     background: rgba(0, 0, 0, 0.55);
     color: white;
     border: none;
-    font-size: 1.4rem;
-    padding: 14px 18px;
+    font-size: 1rem;
+    padding: 10px 12px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: var(--transition);
     z-index: 10;
 }
