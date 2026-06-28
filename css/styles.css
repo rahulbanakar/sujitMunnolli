@@ -1,4 +1,4 @@
-\/* ===== CSS Variables & Global Styles ===== */
+/* ===== CSS Variables & Global Styles ===== */
 :root {
     --primary-color: #ff6b35;
     --secondary-color: #800000;
@@ -807,12 +807,15 @@ body {
 .gallery {
     padding: 80px 20px;
     background: var(--light-bg);
+    overflow-x: hidden;
 }
 
 .gallery .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .portfolio-layout {
@@ -823,6 +826,10 @@ body {
     gap: 40px;
     align-items: stretch;
     margin: 30px auto 0;
+}
+
+.portfolio-layout > * {
+    min-width: 0;
 }
 
 .carousel {
@@ -960,10 +967,18 @@ body {
         padding: 60px 15px;
     }
 
+    .gallery .container {
+        padding: 0 15px;
+    }
+
     .portfolio-layout {
         grid-template-columns: 1fr;
         max-width: 100%;
         gap: 24px;
+    }
+
+    .portfolio-layout > * {
+        min-width: 0;
     }
 
     .carousel {
@@ -972,11 +987,20 @@ body {
 
     .carousel-container {
         min-height: 260px;
+        width: 100%;
+    }
+
+    .carousel-slide,
+    .carousel-slide video {
+        width: 100%;
+        max-width: 100%;
     }
 
     .carousel-btn {
         font-size: 1.2rem;
         padding: 12px 16px;
+        left: 6px;
+        right: 6px;
     }
 
     .carousel-dots {
@@ -992,6 +1016,10 @@ body {
 @media (max-width: 600px) {
     .gallery {
         padding: 50px 12px;
+    }
+
+    .gallery .container {
+        padding: 0 12px;
     }
 
     .portfolio-text {
