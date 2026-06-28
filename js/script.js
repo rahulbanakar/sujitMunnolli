@@ -33,11 +33,53 @@ function showSlide(n) {
     if (dots[slideIndex - 1]) {
         dots[slideIndex - 1].classList.add("active");
     }
+    // Play video in the active slide (if any) and pause others
+    slides.forEach((slide, idx) => {
+        const vid = slide.querySelector('video');
+        if (!vid) return;
+        if (idx === slideIndex - 1) {
+            vid.currentTime = 0;
+            const p = vid.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        } else {
+            try {
+                vid.pause();
+            } catch (e) {}
+            vid.currentTime = 0;
+        }
+    });
+}
+
+let aboutSlideIndex = 0;
+
+function showAboutSlide(index) {
+    const slides = document.querySelectorAll(".about-slide");
+    if (!slides.length) return;
+
+    if (index >= slides.length) {
+        aboutSlideIndex = 0;
+    }
+    if (index < 0) {
+        aboutSlideIndex = slides.length - 1;
+    }
+
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[aboutSlideIndex].classList.add("active");
+}
+
+function nextAboutSlide() {
+    showAboutSlide(++aboutSlideIndex);
+}
+
+function startAboutSlideShow() {
+    setInterval(nextAboutSlide, 2000);
 }
 
 // Initialize carousel
 document.addEventListener("DOMContentLoaded", function () {
     showSlide(slideIndex);
+    showAboutSlide(aboutSlideIndex);
+    startAboutSlideShow();
 });
 
 // ===== Hamburger Menu =====
