@@ -531,58 +531,6 @@ body {
     font-style: normal;
 }
 
-/* ===== Contact Section ===== */
-/* ===== Contact Section ===== */
-.contact {
-    padding: 80px 20px;
-    background: var(--light-bg);
-}
-
-.contact-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.contact-item {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 24px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-}
-
-.contact-item i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-top: 4px;
-}
-
-.contact-item h4 {
-    color: var(--secondary-color);
-    margin-bottom: 8px;
-}
-
-.contact-item p,
-.contact-item a {
-    color: #666;
-    line-height: 1.6;
-}
-
-.contact-item a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
-}
-
 /* ===== Instagram Section ===== */
 .instagram-section {
     padding: 80px 20px;
@@ -706,25 +654,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    .contact-form {
-        width: 100%;
-        max-width: 100%;
-        padding: 30px;
-        box-sizing: border-box;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-    }
-
     .footer .container {
         flex-direction: column;
         gap: 20px;
@@ -788,40 +717,86 @@ body {
     color: white;
 }
 
-/* ===== Gallery / Video Slideshow ===== */
-.gallery {
+/* ===== Gallery + Contact Section ===== */
+.gallery-contact {
     padding: 80px 20px;
     background: var(--light-bg);
-    overflow-x: hidden;
 }
 
-.gallery .container {
-    width: 100%;
+.gallery-contact .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box;
 }
 
-.portfolio-layout {
+.split-layout {
     display: grid;
-    width: 100%;
-    max-width: 1000px;
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
     gap: 40px;
-    align-items: stretch;
-    margin: 30px auto 0;
+    align-items: start;
+    margin-top: 30px;
 }
 
-.portfolio-layout > * {
-    min-width: 0;
+.gallery-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-panel .section-subtitle,
+.contact-panel .section-subtitle {
+    max-width: 650px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.contact-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.contact-card i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 4px;
+    min-width: 34px;
+}
+
+.contact-card h4 {
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.contact-card p,
+.contact-card a {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
 }
 
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 .carousel-container {
@@ -883,9 +858,6 @@ body {
 .carousel-dots {
     text-align: center;
     padding: 20px 0 0;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 .dot {
@@ -904,70 +876,17 @@ body {
     background-color: var(--primary-color);
 }
 
-.portfolio-text {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.portfolio-text h3 {
-    font-size: 1.6rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
-
-.portfolio-text p {
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-.portfolio-text ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.portfolio-text li {
-    position: relative;
-    padding-left: 22px;
-    padding-bottom: 10px;
-    color: var(--text-dark);
-}
-
-.portfolio-text li::before {
-    content: '•';
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
 @media (max-width: 900px) {
-    .gallery {
+    .gallery-contact {
         padding: 60px 15px;
     }
 
-    .gallery .container {
+    .gallery-contact .container {
         padding: 0 15px;
     }
 
-    .portfolio-layout {
+    .split-layout {
         grid-template-columns: 1fr;
-        max-width: 100%;
-        gap: 24px;
-    }
-
-    .portfolio-layout > * {
-        min-width: 0;
-    }
-
-    .carousel {
-        max-width: 100%;
     }
 
     .carousel-container {
@@ -975,44 +894,22 @@ body {
         width: 100%;
     }
 
-    .carousel-slide,
-    .carousel-slide video {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .carousel-btn {
-        font-size: 1.2rem;
-        padding: 12px 16px;
-        left: 6px;
-        right: 6px;
-    }
-
-    .carousel-dots {
-        max-width: 100%;
-    }
-
-    .portfolio-text {
-        margin-top: 20px;
-        padding: 24px;
+    .contact-card {
+        padding: 18px;
     }
 }
 
 @media (max-width: 600px) {
-    .gallery {
+    .gallery-contact {
         padding: 50px 12px;
     }
 
-    .gallery .container {
-        padding: 0 12px;
-    }
-
-    .portfolio-text {
-        padding: 20px;
+    .contact-card {
+        flex-direction: column;
     }
 
     .carousel-btn {
-        padding: 10px 14px;
+        padding: 10px 12px;
     }
 }
 
