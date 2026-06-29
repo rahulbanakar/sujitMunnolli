@@ -583,8 +583,14 @@ body {
     text-decoration: none;
 }
 
-.contact-card a:hover {
-    color: var(--primary-color);
+..contact-card a:hover,
+.contact-grid > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-grid > a {
+    display: block;
 }
 
 .contact-card-highlight {
