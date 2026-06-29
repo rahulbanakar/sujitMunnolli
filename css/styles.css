@@ -396,6 +396,69 @@ body {
     line-height: 1.8;
 }
 
+/* ===== Mobile-first Carousel (Gallery) ===== */
+.video-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 12px 6px;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: white;
+}
+
+.carousel-slide video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 56px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+/* On larger screens show multiple items in-row */
+@media (min-width: 700px) {
+    .carousel-slide { flex: 0 0 48%; }
+    .carousel-track { gap: 18px; padding: 16px 8px; }
+}
+
+@media (min-width: 1100px) {
+    .carousel-slide { flex: 0 0 31%; }
+}
+
 /* ===== Pricing Section ===== */
 .pricing {
     padding: 80px 20px;
