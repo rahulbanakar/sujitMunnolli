@@ -284,5 +284,57 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+// ===== Video Carousel Controls (mobile-first) =====
+function initVideoCarousels() {
+    const carousels = document.querySelectorAll('.video-carousel');
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const prev = carousel.querySelector('.carousel-btn.prev');
+        const next = carousel.querySelector('.carousel-btn.next');
+
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+
+        // Pause all videos except the first visible one
+        function pauseHiddenVideos() {
+            const rect = track.getBoundingClientRect();
+            slides.forEach(slide => {
+                const vid = slide.querySelector('video');
+                if (!vid) return;
+                const srect = slide.getBoundingClientRect();
+                // consider visible if center of slide is within track viewport
+                const center = (srect.left + srect.right) / 2;
+                if (center >= rect.left && center <= rect.right) {
+                    vid.play().catch(() => {});
+                } else {
+                    try { vid.pause(); } catch (e) {}
+                    vid.currentTime = 0;
+                }
+            });
+        }
+
+        // Scroll by one slide width (current viewport width of a slide)
+        function scrollBySlide(direction = 1) {
+            const slideWidth = track.querySelector('.carousel-slide')?.getBoundingClientRect().width || track.clientWidth;
+            track.scrollBy({ left: Math.round(slideWidth * direction), behavior: 'smooth' });
+            setTimeout(pauseHiddenVideos, 300);
+        }
+
+        if (prev) prev.addEventListener('click', () => scrollBySlide(-1));
+        if (next) next.addEventListener('click', () => scrollBySlide(1));
+
+        // Pause/Play handling on scroll
+        let scrollTimer;
+        track.addEventListener('scroll', () => {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(pauseHiddenVideos, 150);
+        });
+
+        // Initialize
+        pauseHiddenVideos();
+    });
+}
+
 // ===== Log Initial Load =====
 console.log("Munnolli Engineering Works - Website loaded successfully!");
