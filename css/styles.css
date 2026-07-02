@@ -419,11 +419,13 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     background: white;
+    aspect-ratio: 16 / 9;
+    min-height: 220px;
 }
 
 .carousel-slide video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
 }
@@ -448,6 +450,10 @@ body {
 
 .carousel-btn.prev { left: 8px; }
 .carousel-btn.next { right: 8px; }
+
+.gallery-section {
+    margin-bottom: 60px;
+}
 
 /* On larger screens show multiple items in-row */
 @media (min-width: 700px) {
@@ -701,6 +707,7 @@ body {
     color: white;
     padding: 30px 20px;
     text-align: center;
+    margin-top: 40px;
 }
 
 .footer .container {
